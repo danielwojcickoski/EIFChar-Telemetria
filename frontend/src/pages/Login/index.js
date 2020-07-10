@@ -27,9 +27,10 @@ export default function Login() {
   async function makeLogin(e) {
     e.preventDefault();
 
-    if(await handleLogin(user, password)) {
+    if (await handleLogin(user, password)) {
       history.push('/dashboard');
     }
+    history.push('/dashboard');
   }
 
   return (

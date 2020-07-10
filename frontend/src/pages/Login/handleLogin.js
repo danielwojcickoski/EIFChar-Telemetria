@@ -1,7 +1,7 @@
 import api from '../../services/api';
 import errorAlert from '../../utils/errorAlert';
 
-export default async function makeLogin(user, password) {
+export default async function handleLogin(user, password) {
   try {
     if (user === '' || password === '' ||
       user === undefined || password === undefined) throw new Error('MISSINGDATA');
@@ -12,7 +12,7 @@ export default async function makeLogin(user, password) {
       password
     }).then(response => {
       localStorage.setItem('user', user);
-      localStorage.setItem('preAuthorization', response.data.preAuthorization);
+      localStorage.setItem('authorization', response.data.authorization);
     });
 
     return true;

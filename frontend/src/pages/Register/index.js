@@ -29,7 +29,7 @@ export default function Register() {
   async function makeRegister(e) {
     e.preventDefault();
 
-    if(await handleRegister(user, email, password, confirmPassword)) {
+    if (await handleRegister(user, email, password, confirmPassword)) {
       history.push('/login');
     }
   }
