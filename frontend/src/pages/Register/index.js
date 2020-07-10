@@ -30,7 +30,7 @@ export default function Register() {
     e.preventDefault();
 
     if (await handleRegister(user, email, password, confirmPassword)) {
-      history.push('/login');
+      history.push('/');
     }
   }
 
