@@ -1,11 +1,14 @@
 import api from '../../services/api';
 import errorAlert from '../../utils/errorAlert';
+import validateData from '../../utils/validateData'
 
 export default async function handleLogin(user, password) {
   try {
-    if (user === '' || password === '' ||
-      user === undefined || password === undefined) throw new Error('MISSINGDATA');
-    else if (password.length < 8) throw new Error('WRONGPASSWORD');
+    let validateUser = validateData.user(user);
+    let validatePassword = validateData.user(password);
+
+    if (validateUser !== true) throw new Error(validateUser);
+    if (validatePassword !== true) throw new Error(validatePassword);
 
     await api.post('login', {
       user,

@@ -1,14 +1,18 @@
 import api from '../../services/api';
 import errorAlert from '../../utils/errorAlert';
-import validateEmail from '../../utils/validateEmail';
+import validateData from '../../utils/validateData'
 
 export default async function makeRegister(user, email, password, confirmPassword) {
   try {
-    if (user === '' || email === '' || password === '' || confirmPassword === '' ||
-      user === undefined || email === undefined || password === undefined || confirmPassword === undefined) throw new Error('MISSINGDATA');
-    else if (password.length < 8) throw new Error('SHORTPASSWORD');
-    else if (password !== confirmPassword) throw new Error('CONFIRMPASSWORRDERROR');
-    else if (validateEmail(email) === false) throw new Error('INVALIDEMAIL');
+    let validateUser = validateData.user(user);
+    let validateEmail = validateData.user(email);
+    let validatePassword = validateData.user(password);
+    let validateConfirmation = validateData.user(confirmPassword);
+
+    if (validateUser !== true) throw new Error(validateUser);
+    if (validateEmail !== true) throw new Error(validateEmail);
+    if (validatePassword !== true) throw new Error(validatePassword);
+    if (validateConfirmation !== true) throw new Error(validateConfirmation);
 
     await api.post('/logon/register', { user, email, password });
 

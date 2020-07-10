@@ -54,11 +54,13 @@ export default function Register() {
             placeholder="Senha"
             value={password}
             onChange={e => setPassword(e.target.value)}
+            type="password"
           />
           <input
             placeholder="Confirmar Senha"
             value={confirmPassword}
             onChange={e => setConfirmPassword(e.target.value)}
+            type="password"
           />
           <button className="button" type="submit">Cadastrar</button>
 
