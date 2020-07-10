@@ -62,7 +62,7 @@ export default function Register() {
           />
           <button className="button" type="submit">Cadastrar</button>
 
-          <Link className="back-link" to="/login">
+          <Link className="back-link" to="/">
             <FiLogIn size={16} color="#41414d" />
               Já tenho cadastro
             </Link>
