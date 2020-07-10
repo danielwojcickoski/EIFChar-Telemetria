@@ -1,0 +1,19 @@
+{
+  "name": "monorepobuild",
+  "version": "1.0.0",
+  "description": "Projeto para  fazer a telemetria para um carro elétrico super econômico, através da integração de um app mobile com um client web.",
+  "main": "index.js",
+  "scripts": {
+    "build:frontend": "npm --prefix frontend run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielwojcickoski/EIFChar-Telemetria.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielwojcickoski/EIFChar-Telemetria/issues"
+  },
+  "homepage": "https://github.com/danielwojcickoski/EIFChar-Telemetria#readme"
+}
