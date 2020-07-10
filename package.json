@@ -6,6 +6,10 @@
   "scripts": {
     "build:frontend": "npm --prefix frontend run build"
   },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danielwojcickoski/EIFChar-Telemetria.git"
