@@ -1,0 +1,16 @@
+/*-------------------------------------------------------------------------------
+  Container
+-------------------------------------------------------------------------------*/
+.history-container {
+  width: 100%;
+  max-width: 1920px;
+  height: 100vh;
+  margin: auto auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.history-container img{
+  height: 94vh;
+}
