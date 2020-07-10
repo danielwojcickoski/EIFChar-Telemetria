@@ -17,7 +17,7 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   useEffect(() => {
-    document.title = 'Cadastro - EIFChar Telemetria';
+    document.title = 'Cadastro - EIFChar';
     async function verifyAuth() {
       if (await verifyAuthorization()) {
         history.push('/dashboard');

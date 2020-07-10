@@ -15,7 +15,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    document.title = 'Login - EIFChar Telemetria';
+    document.title = 'Login - EIFChar';
     async function verifyAuth() {
       if (await verifyAuthorization()) {
         history.push('/dashboard');

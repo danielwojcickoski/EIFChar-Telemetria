@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 1120px;
   height: 100vh;
-  margin: auto auto;
+  margin: 0 auto;
 
   display: flex;
   justify-content: center;
@@ -15,9 +15,8 @@
 -------------------------------------------------------------------------------*/
 .login-container section.form {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   height: 93vh;
-  margin-top: 4vh;
 
   display: flex;
   flex-direction: column;
@@ -27,6 +26,7 @@
 
 .login-container section.form img{
   height: 15vh;
+  max-height: 200px;
 }
 
 .login-container section.form form{

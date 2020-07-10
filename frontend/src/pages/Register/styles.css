@@ -16,7 +16,7 @@
 -------------------------------------------------------------------------------*/
 .register-container section.form {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   height: 93vh;
   margin-top: 4vh;
 
@@ -28,6 +28,7 @@
 
 .register-container section.form img{
   height: 15vh;
+  max-height: 200px;
 }
 
 .register-container section.form form{
