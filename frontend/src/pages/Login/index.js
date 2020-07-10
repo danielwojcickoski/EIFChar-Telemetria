@@ -18,7 +18,7 @@ export default function Login() {
     document.title = 'Login - EIFChar Telemetria';
     async function verifyAuth() {
       if (await verifyAuthorization()) {
-        history.push('/home');
+        history.push('/dashboard');
       }
     }
     verifyAuth();
@@ -30,7 +30,6 @@ export default function Login() {
     if (await handleLogin(user, password)) {
       history.push('/dashboard');
     }
-    history.push('/dashboard');
   }
 
   return (

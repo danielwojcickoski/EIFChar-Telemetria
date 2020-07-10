@@ -20,7 +20,7 @@ export default function Register() {
     document.title = 'Cadastro - EIFChar Telemetria';
     async function verifyAuth() {
       if (await verifyAuthorization()) {
-        history.push('/home');
+        history.push('/dashboard');
       }
     }
     verifyAuth();
@@ -30,7 +30,7 @@ export default function Register() {
     e.preventDefault();
 
     if (await handleRegister(user, email, password, confirmPassword)) {
-      history.push('/');
+      history.push('/login');
     }
   }
 
@@ -62,7 +62,7 @@ export default function Register() {
           />
           <button className="button" type="submit">Cadastrar</button>
 
-          <Link className="back-link" to="/">
+          <Link className="back-link" to="/login">
             <FiLogIn size={16} color="#41414d" />
               Já tenho cadastro
             </Link>
