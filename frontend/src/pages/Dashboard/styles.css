@@ -30,12 +30,16 @@
   width: 30%;
   height: 100%;
   min-height: 94vh;
+
+  position: relative;
 }
 
 .dashboard-container .dashboard-body .read-events {
   width: 70%;
   height: 100%;
   min-height: 94vh;
+
+  position: relative;
 }
 
 .dashboard-container span {
