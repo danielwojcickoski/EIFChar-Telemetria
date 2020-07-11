@@ -1,0 +1,50 @@
+
+/*-------------------------------------------------------------------------------
+  Navbar
+-------------------------------------------------------------------------------*/
+.navbar{
+  height: 6vh;
+  width: 100%;
+  max-width: 1919px;
+  position: fixed;
+
+  background-color: #41414d;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar img{
+  height: 6vh;
+}
+
+.navbar nav{
+  width: 16vw;
+  min-width: 300px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar nav .navbar-link{
+  margin: 0;
+  margin-right: 10px;
+
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.navbar nav .navbar-button{
+  width: 6vh;
+  height: 6vh;
+
+  border: 0px solid;
+  border-right: 1px solid #41414d;;
+}
+
+.navbar nav .navbar-button:hover{
+  background-color:#cf3e12;
+}

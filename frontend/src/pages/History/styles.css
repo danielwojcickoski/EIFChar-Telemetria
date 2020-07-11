@@ -11,6 +11,7 @@
   flex-direction: column;
 }
 
-.history-container img{
-  height: 94vh;
+.history-container .history-body img{
+  margin-top: 6vh;
+  width: 100%;
 }
