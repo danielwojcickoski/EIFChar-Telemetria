@@ -5,10 +5,10 @@
   width: 100%;
   max-width: 1920px;
   height: 100vh;
+  max-height: 1080px;
   margin: auto auto;
 
-  border-left: 1px solid #41414d;
-  border-right: 1px solid #41414d;
+  background-color: #f0f0f5;
 
   display: flex;
   flex-direction: column;

@@ -5,8 +5,11 @@
   width: 100%;
   max-width: 1920px;
   height: 100vh;
+  max-height: 1080px;
   margin: auto auto;
 
+  background-color: #f0f0f5;
+  
   display: flex;
   justify-content: center;
 }
