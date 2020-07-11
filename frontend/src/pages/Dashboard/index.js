@@ -5,6 +5,8 @@ import { FiPower } from 'react-icons/fi';
 import verifyAuthorization from '../../utils/verifyAuthorization';
 
 import './styles.css';
+import './emit-events.css';
+import './read-events.css';
 import logo from '../../assets/logo.png'
 
 export default function Login() {
@@ -151,6 +153,7 @@ export default function Login() {
               </select>
               <select>
                 <option value="" disabled selected>Repetições</option>
+                <option value="0">Não repetir</option>
                 <option value="1">1x</option>
                 <option value="2">2x</option>
                 <option value="3">3x</option>
@@ -163,14 +166,14 @@ export default function Login() {
           <div className="message-div">
             <h1>Mensagem</h1>
 
-            <input 
+            <input
               placeholder="Digite aqui uma mensagem para o piloto"
               className="message-input"
             />
           </div>
 
           <button className="button">Enviar</button>
- 
+
           <div className="status-div">
             <p><strong>Status Ultima Mensagem:</strong>  Nada enviado</p>
           </div>
@@ -179,7 +182,67 @@ export default function Login() {
         <span></span>
 
         <section className="read-events">
+          <div className="main-infos-div">
+            <div className="last-message-time-div">
+              <h1>Horario ultimas infos:</h1>
+              <h2>00:00</h2>
+            </div>
+            <div className="speed-div">
+              <h1>Velocidade atual: (km/h)</h1>
+              <h2>00.00</h2>
+            </div>
+            <div className="battery-voltage-div">
+              <h1>Tensão da bateria: (V)</h1>
+              <h2>00.00</h2>
+            </div>
+          </div>
 
+          <table className="infos-table-div">
+            <tr>
+              <td><h1>Corrente elétrica</h1></td>
+              <td>0</td>
+              <td>A</td>
+            </tr>
+            <tr>
+              <td><h1>Consumo atual</h1></td>
+              <td>0</td>
+              <td>W</td>
+            </tr>
+            <tr>
+              <td><h1>Consumo desde o início da bateria</h1></td>
+              <td>0</td>
+              <td>kWh</td>
+            </tr>
+            <tr>
+              <td><h1>Consumo desde o início da bateria</h1></td>
+              <td>0</td>
+              <td>Joules</td>
+            </tr>
+            <tr>
+              <td><h1>Porcentagem estimada da bateria</h1></td>
+              <td>0</td>
+              <td>%</td>
+            </tr>
+            <tr>
+              <td><h1>Temperatura do circuito de potência</h1></td>
+              <td>0</td>
+              <td>°C</td>
+            </tr>
+            <tr>
+              <td><h1>Número de voltas</h1></td>
+              <td>0</td>
+              <td>voltas</td>
+            </tr>
+            <tr>
+              <td><h1>Porcentagem do percurso</h1></td>
+              <td>0</td>
+              <td>%</td>
+            </tr>
+          </table>
+
+          <div className="status-div">
+            <p><strong>Status Aplicativo:</strong>  Não conectado ao servidor</p>
+          </div>
         </section>
       </section>
     </div>
