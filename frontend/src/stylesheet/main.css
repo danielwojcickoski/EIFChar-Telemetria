@@ -96,6 +96,7 @@ ul{
 .navbar{
   height: 6vh;
   width: 100%;
+  max-width: 1920px;
   position: fixed;
 
   background-color: #41414d;
@@ -132,6 +133,7 @@ ul{
   height: 6vh;
 
   border: 0px solid;
+  border-right: 1px solid #41414d;;
 }
 
 .navbar nav .navbar-button:hover{
