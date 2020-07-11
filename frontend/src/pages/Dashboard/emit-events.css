@@ -2,14 +2,23 @@
 /*-------------------------------------------------------------------------------
   Emit events
 -------------------------------------------------------------------------------*/
+.dashboard-container .dashboard-body .emit-events .emit-itens-div{
+  height: 77vh;
+
+  display: grid;
+}
+
 /*Light Signal*/
 .dashboard-container .dashboard-body .emit-events .light-signal-div{
-  margin-top: 11.1vh;
+  height: 100%;
 
   text-align: center;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  
+  border-bottom: 2px solid #41414d;
 }
 
 .dashboard-container .dashboard-body .emit-events .light-signal-div .light-signal-options{
@@ -30,16 +39,19 @@
   margin-top: 5px;
 
   border: 1px solid #41414d;
+  border-radius: 8px;
 }
 
 /*Sound Signal*/
 .dashboard-container .dashboard-body .emit-events .sound-signal-div{
-  margin-top: 4vh;
+  height: 100%;
 
   text-align: center;
+  border-bottom: 2px solid #41414d;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .dashboard-container .dashboard-body .emit-events .sound-signal-div .sound-signal-option{
@@ -54,17 +66,21 @@
   margin-top: 5px;
   
   border: 1px solid #41414d;
+  border-radius: 8px;
 }
 
 
 /*Message*/
 .dashboard-container .dashboard-body .emit-events .message-div{
-  margin-top: 6vh;
+  height: 100%;
 
   text-align: center;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
+  border-bottom: 2px solid #41414d;
 }
 
 .dashboard-container .dashboard-body .emit-events .message-div input{
@@ -75,6 +91,7 @@
   text-align: center;
   
   border: 1px solid #41414d;
+  border-radius: 8px;
 }
 
 /*Send*/
