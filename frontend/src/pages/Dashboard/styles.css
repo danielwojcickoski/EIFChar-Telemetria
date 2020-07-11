@@ -7,6 +7,9 @@
   height: 100vh;
   margin: auto auto;
 
+  border-left: 1px solid #41414d;
+  border-right: 1px solid #41414d;
+
   display: flex;
   flex-direction: column;
 }
