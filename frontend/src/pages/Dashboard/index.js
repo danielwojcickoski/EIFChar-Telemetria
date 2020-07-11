@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Navbar from '../../components/Navbar'
@@ -18,7 +18,7 @@ export default function Login() {
       if (await !verifyAuthorization()) {
         return false;
       }
-      history.push('/dashboard');
+      history.push('/login');
     }
     verifyAuth();
   });
@@ -37,45 +37,45 @@ export default function Login() {
                 <div className="light-signal-option">
                   <p>Led 1:</p>
                   <select>
-                    <option value="" disabled selected>Ação</option>
+                    <option value="off" disabled selected>Ação</option>
                     <option value="on">Ligar</option>
                     <option value="off">Desligar</option>
                   </select>
                   <select>
-                    <option value="" disabled selected>Cor</option>
-                    <option>Verde</option>
-                    <option>Amarelo</option>
-                    <option>Vermelho</option>
+                    <option value="off" disabled selected>Cor</option>
+                    <option value="green">Verde</option>
+                    <option value="yellow">Amarelo</option>
+                    <option value="red">Vermelho</option>
                   </select>
                 </div>
-
+                
                 <div className="light-signal-option">
                   <p>Led 2:</p>
                   <select>
-                    <option value="" disabled selected>Ação</option>
+                    <option value="off" disabled selected>Ação</option>
                     <option value="on">Ligar</option>
                     <option value="off">Desligar</option>
                   </select>
                   <select>
-                    <option value="" disabled selected>Cor</option>
-                    <option>Verde</option>
-                    <option>Amarelo</option>
-                    <option>Vermelho</option>
+                    <option value="off" disabled selected>Cor</option>
+                    <option value="green">Verde</option>
+                    <option value="yellow">Amarelo</option>
+                    <option value="red">Vermelho</option>
                   </select>
                 </div>
 
                 <div className="light-signal-option">
                   <p>Led 3:</p>
                   <select>
-                    <option value="" disabled selected>Ação</option>
+                    <option value="off" disabled selected>Ação</option>
                     <option value="on">Ligar</option>
                     <option value="off">Desligar</option>
                   </select>
                   <select>
-                    <option value="" disabled selected>Cor</option>
-                    <option>Verde</option>
-                    <option>Amarelo</option>
-                    <option>Vermelho</option>
+                    <option value="off" disabled selected>Cor</option>
+                    <option value="green">Verde</option>
+                    <option value="yellow">Amarelo</option>
+                    <option value="red">Vermelho</option>
                   </select>
                 </div>
               </div>
@@ -156,9 +156,11 @@ export default function Login() {
                 className="message-input"
               />
             </div>
-          </div>
 
-          <button className="button">Enviar</button>
+            <div className="button-div">
+              <button className="button">Enviar</button>
+            </div>
+          </div>
 
           <div className="status-div">
             <p><strong>Status Ultima Mensagem:</strong>  Nada enviado</p>
@@ -168,63 +170,67 @@ export default function Login() {
         <span></span>
 
         <section className="read-events">
-          <div className="main-infos-div">
-            <div className="last-message-time-div">
-              <h1>Horario ultimas infos:</h1>
-              <h2>00:00</h2>
+          <div className="read-itens-div">
+            <div className="main-infos-div">
+              <div className="last-message-time-div">
+                <h1>Horario ultimas infos:</h1>
+                <h2>00:00</h2>
+              </div>
+              <div className="speed-div">
+                <h1>Velocidade atual: (km/h)</h1>
+                <h2>00.00</h2>
+              </div>
+              <div className="battery-voltage-div">
+                <h1>Tensão da bateria: (V)</h1>
+                <h2>00.00</h2>
+              </div>
             </div>
-            <div className="speed-div">
-              <h1>Velocidade atual: (km/h)</h1>
-              <h2>00.00</h2>
-            </div>
-            <div className="battery-voltage-div">
-              <h1>Tensão da bateria: (V)</h1>
-              <h2>00.00</h2>
+
+            <div className="infos-table-div">
+              <table>
+                <tr>
+                  <td><h1>Corrente elétrica</h1></td>
+                  <td>0</td>
+                  <td>A</td>
+                </tr>
+                <tr>
+                  <td><h1>Consumo atual</h1></td>
+                  <td>0</td>
+                  <td>W</td>
+                </tr>
+                <tr>
+                  <td><h1>Consumo desde o início da bateria</h1></td>
+                  <td>0</td>
+                  <td>kWh</td>
+                </tr>
+                <tr>
+                  <td><h1>Consumo desde o início da bateria</h1></td>
+                  <td>0</td>
+                  <td>Joules</td>
+                </tr>
+                <tr>
+                  <td><h1>Porcentagem estimada da bateria</h1></td>
+                  <td>0</td>
+                  <td>%</td>
+                </tr>
+                <tr>
+                  <td><h1>Temperatura do circuito de potência</h1></td>
+                  <td>0</td>
+                  <td>°C</td>
+                </tr>
+                <tr>
+                  <td><h1>Número de voltas</h1></td>
+                  <td>0</td>
+                  <td>voltas</td>
+                </tr>
+                <tr>
+                  <td><h1>Porcentagem do percurso</h1></td>
+                  <td>0</td>
+                  <td>%</td>
+                </tr>
+              </table>
             </div>
           </div>
-
-          <table className="infos-table-div">
-            <tr>
-              <td><h1>Corrente elétrica</h1></td>
-              <td>0</td>
-              <td>A</td>
-            </tr>
-            <tr>
-              <td><h1>Consumo atual</h1></td>
-              <td>0</td>
-              <td>W</td>
-            </tr>
-            <tr>
-              <td><h1>Consumo desde o início da bateria</h1></td>
-              <td>0</td>
-              <td>kWh</td>
-            </tr>
-            <tr>
-              <td><h1>Consumo desde o início da bateria</h1></td>
-              <td>0</td>
-              <td>Joules</td>
-            </tr>
-            <tr>
-              <td><h1>Porcentagem estimada da bateria</h1></td>
-              <td>0</td>
-              <td>%</td>
-            </tr>
-            <tr>
-              <td><h1>Temperatura do circuito de potência</h1></td>
-              <td>0</td>
-              <td>°C</td>
-            </tr>
-            <tr>
-              <td><h1>Número de voltas</h1></td>
-              <td>0</td>
-              <td>voltas</td>
-            </tr>
-            <tr>
-              <td><h1>Porcentagem do percurso</h1></td>
-              <td>0</td>
-              <td>%</td>
-            </tr>
-          </table>
 
           <div className="status-div">
             <p><strong>Status Aplicativo:</strong>  Não conectado ao servidor</p>

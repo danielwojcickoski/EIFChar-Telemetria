@@ -17,7 +17,7 @@ export default function Login() {
       if (await !verifyAuthorization()) {
         return false;
       }
-      history.push('/dashboard');
+      history.push('/login');
     }
     verifyAuth();
   });

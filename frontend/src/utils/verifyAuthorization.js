@@ -9,7 +9,7 @@ export default function verifyAuthorization() {
   }
   else {
     try {
-      api.post('logon/verifyauth', {
+      api.get('verifyauth', {
         user,
         authorization
       });

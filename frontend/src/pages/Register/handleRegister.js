@@ -14,7 +14,7 @@ export default async function makeRegister(user, email, password, confirmPasswor
     if (validatePassword !== true) throw new Error(validatePassword);
     if (validateConfirmation !== true) throw new Error(validateConfirmation);
 
-    await api.post('/logon/register', { user, email, password });
+    await api.post('/register', { user, email, password });
 
     alert('Cadastro realizado com sucesso');
     return true;
