@@ -13,6 +13,12 @@ export default function Login() {
   /*Use history*/
   const history = useHistory();
 
+  /*Force update*/
+  const [update, setUpdate] = useState(0);
+  function forceUpdate(){
+    setUpdate(update+1);
+  }
+
   /*Emit data*/
   const [emitData, setEmitData] = useState({
     lightSignal: {
@@ -41,16 +47,16 @@ export default function Login() {
   /*Read data*/
   const [readData, setReadData] = useState({
     currentTime: {
-      hour: '22',
+      hour: '00',
       minute: '00',
     },
-    currentSpeed: '1',
-    batteryVoltage: '40',
-    currentAmpere: '1',
+    currentSpeed: '0',
+    batteryVoltage: '0',
+    currentAmpere: '0',
     currentConsume: '0',
     totalConsumeW: '0',
     totalConsumeJ: '0',
-    estimatedBattery: '98',
+    estimatedBattery: '0',
     powerTemperature: '0',
     laps: '0',
     routePercentage: '0',
@@ -76,7 +82,6 @@ export default function Login() {
   }
 
   /*Read data panel*/
-
 
   /*Html*/
   return (
@@ -386,7 +391,7 @@ export default function Login() {
               </div>
               <div className="speed-div">
                 <h1>Velocidade atual: (km/h)</h1>
-                <h2>{readData.currentSpeed}</h2>
+                <h2 size="4">{readData.currentSpeed}</h2>
               </div>
               <div className="battery-voltage-div">
                 <h1>Tensão da bateria: (V)</h1>
