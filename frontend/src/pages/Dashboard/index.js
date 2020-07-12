@@ -23,40 +23,126 @@ export default function Login() {
     verifyAuth();
   });
 
+  const [emitData, setEmitData] = useState({
+    lightSignal: {
+      led1: {
+        action: "nothing",
+        color: "off",
+      },
+      led2: {
+        action: "nothing",
+        color: "off",
+      },
+      led3: {
+        action: "nothing",
+        color: "off",
+      }
+    },
+    soundSignal: {
+      action: "nothing",
+      onTime: "0",
+      offTime: "0",
+      repeat: "0",
+    },
+    message: "",
+  });
+
+  function sendData(e) {
+    e.preventDefault();
+
+    console.log(emitData);
+  }
+
   return (
     <div className="dashboard-container">
       <Navbar />
 
       <section className="dashboard-body">
         <section className="emit-events">
-          <div className="emit-itens-div">
+          <form className="emit-itens-div" onSubmit={sendData}>
             <div className="light-signal-div">
               <h1>Sinal Luminoso</h1>
 
               <div className="light-signal-options">
                 <div className="light-signal-option">
                   <p>Led 1:</p>
-                  <select>
-                    <option value="off" disabled selected>Ação</option>
+                  <select
+                    value={emitData.lightSignal.led1.action}
+                    onChange={e => {
+                      const newAction = e.target.value;
+                      const newLightSignal = emitData.lightSignal;
+                      newLightSignal.led1.action = newAction;
+
+                      setEmitData(prevState => {
+                        return {
+                          ...prevState,
+                          lightSignal: newLightSignal
+                        }
+                      })
+                    }}
+                  >
+                    <option value="nothing" disabled selected>Ação</option>
                     <option value="on">Ligar</option>
                     <option value="off">Desligar</option>
                   </select>
-                  <select>
+                  <select
+                    value={emitData.lightSignal.led1.color}
+                    onChange={e => {
+                      const newColor = e.target.value;
+                      const newLightSignal = emitData.lightSignal;
+                      newLightSignal.led1.color = newColor;
+
+                      setEmitData(prevState => {
+                        return {
+                          ...prevState,
+                          lightSignal: newLightSignal
+                        }
+                      })
+                    }}
+                  >
                     <option value="off" disabled selected>Cor</option>
                     <option value="green">Verde</option>
                     <option value="yellow">Amarelo</option>
                     <option value="red">Vermelho</option>
                   </select>
                 </div>
-                
+
                 <div className="light-signal-option">
                   <p>Led 2:</p>
-                  <select>
-                    <option value="off" disabled selected>Ação</option>
+                  <select
+                    value={emitData.lightSignal.led2.action}
+                    onChange={e => {
+                      const newAction = e.target.value;
+                      const newLightSignal = emitData.lightSignal;
+                      newLightSignal.led2.action = newAction;
+
+                      setEmitData(prevState => {
+                        return {
+                          ...prevState,
+                          lightSignal: newLightSignal
+                        }
+                      })
+                    }}
+                  >
+                    <option value="nothing" disabled selected>Ação</option>
                     <option value="on">Ligar</option>
                     <option value="off">Desligar</option>
                   </select>
-                  <select>
+                  <select
+                    value={emitData.lightSignal.led2.color}
+                    onChange={e => {
+                      const newColor = e.target.value;
+                      const newLightSignal = emitData.lightSignal;
+                      newLightSignal.led2.color = newColor;
+
+                      setEmitData(prevState => {
+                        return {
+                          ...prevState,
+                          lightSignal: newLightSignal
+                        }
+                      })
+                    }}
+                  >
                     <option value="off" disabled selected>Cor</option>
                     <option value="green">Verde</option>
                     <option value="yellow">Amarelo</option>
@@ -66,12 +152,40 @@ export default function Login() {
 
                 <div className="light-signal-option">
                   <p>Led 3:</p>
-                  <select>
-                    <option value="off" disabled selected>Ação</option>
+                  <select
+                    value={emitData.lightSignal.led3.action}
+                    onChange={e => {
+                      const newAction = e.target.value;
+                      const newLightSignal = emitData.lightSignal;
+                      newLightSignal.led3.action = newAction;
+
+                      setEmitData(prevState => {
+                        return {
+                          ...prevState,
+                          lightSignal: newLightSignal
+                        }
+                      })
+                    }}
+                  >
+                    <option value="nothing" disabled selected>Ação</option>
                     <option value="on">Ligar</option>
                     <option value="off">Desligar</option>
                   </select>
-                  <select>
+                  <select
+                    value={emitData.lightSignal.led3.color}
+                    onChange={e => {
+                      const newColor = e.target.value;
+                      const newLightSignal = emitData.lightSignal;
+                      newLightSignal.led3.color = newColor;
+
+                      setEmitData(prevState => {
+                        return {
+                          ...prevState,
+                          lightSignal: newLightSignal
+                        }
+                      })
+                    }}
+                  >
                     <option value="off" disabled selected>Cor</option>
                     <option value="green">Verde</option>
                     <option value="yellow">Amarelo</option>
@@ -85,13 +199,42 @@ export default function Login() {
               <h1>Sinal Sonoro</h1>
 
               <div className="sound-signal-option">
-                <select>
-                  <option value="" disabled selected>Ação</option>
+                <select
+                  value={emitData.soundSignal.action}
+                  onChange={e => {
+                    const newAction = e.target.value;
+                    const newSoundSignal = emitData.soundSignal;
+                    newSoundSignal.action = newAction;
+
+                    setEmitData(prevState => {
+                      return {
+                        ...prevState,
+                        soundSignal: newSoundSignal
+                      }
+                    })
+                  }}
+                >
+                  <option value="nothing" disabled selected>Ação</option>
                   <option value="on">Ligar</option>
                   <option value="off">Desligar</option>
                 </select>
-                <select>
-                  <option value="" disabled selected>Tempo ON</option>
+                <select
+                  value={emitData.soundSignal.onTime}
+                  onChange={e => {
+                    const newTime = e.target.value;
+                    const newSoundSignal = emitData.soundSignal;
+                    newSoundSignal.onTime = newTime;
+
+                    setEmitData(prevState => {
+                      return {
+                        ...prevState,
+                        soundSignal: newSoundSignal
+                      }
+                    })
+                  }}
+                >
+                  <option value="0" disabled selected>Tempo ON</option>
+                  <option value="0">0s</option>
                   <option value="0.5">0.5s</option>
                   <option value="1">1s</option>
                   <option value="1.5">1.5s</option>
@@ -113,8 +256,23 @@ export default function Login() {
                   <option value="9.5">9.5s</option>
                   <option value="10">10s</option>
                 </select>
-                <select>
-                  <option value="" disabled selected>Tempo OFF</option>
+                <select
+                  value={emitData.soundSignal.offTime}
+                  onChange={e => {
+                    const newTime = e.target.value;
+                    const newSoundSignal = emitData.soundSignal;
+                    newSoundSignal.offTime = newTime;
+
+                    setEmitData(prevState => {
+                      return {
+                        ...prevState,
+                        soundSignal: newSoundSignal
+                      }
+                    })
+                  }}
+                >
+                  <option value="0" disabled selected>Tempo OFF</option>
+                  <option value="0">0s</option>
                   <option value="0.5">0.5s</option>
                   <option value="1">1s</option>
                   <option value="1.5">1.5s</option>
@@ -136,8 +294,22 @@ export default function Login() {
                   <option value="9.5">9.5s</option>
                   <option value="10">10s</option>
                 </select>
-                <select>
-                  <option value="" disabled selected>Repetições</option>
+                <select
+                  value={emitData.soundSignal.repeat}
+                  onChange={e => {
+                    const newRepeat = e.target.value;
+                    const newSoundSignal = emitData.soundSignal;
+                    newSoundSignal.repeat = newRepeat;
+
+                    setEmitData(prevState => {
+                      return {
+                        ...prevState,
+                        soundSignal: newSoundSignal
+                      }
+                    })
+                  }}
+                >
+                  <option value="0" disabled selected>Repetições</option>
                   <option value="0">Não repetir</option>
                   <option value="1">1x</option>
                   <option value="2">2x</option>
@@ -151,16 +323,26 @@ export default function Login() {
             <div className="message-div">
               <h1>Mensagem</h1>
 
-              <input
-                placeholder="Digite aqui uma mensagem para o piloto"
+              <textarea
+                placeholder="Digite aqui uma mensagem"
+                value={emitData.message}
+                onChange={e => {
+                  const newMessage = e.target.value;
+                  setEmitData(prevState => {
+                    return {
+                      ...prevState,
+                      message: newMessage
+                    }
+                  })
+                }}
                 className="message-input"
               />
             </div>
 
             <div className="button-div">
-              <button className="button">Enviar</button>
+              <button className="button" type="submit">Enviar</button>
             </div>
-          </div>
+          </form>
 
           <div className="status-div">
             <p><strong>Status Ultima Mensagem:</strong>  Nada enviado</p>
@@ -188,46 +370,48 @@ export default function Login() {
 
             <div className="infos-table-div">
               <table>
-                <tr>
-                  <td><h1>Corrente elétrica</h1></td>
-                  <td>0</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td><h1>Consumo atual</h1></td>
-                  <td>0</td>
-                  <td>W</td>
-                </tr>
-                <tr>
-                  <td><h1>Consumo desde o início da bateria</h1></td>
-                  <td>0</td>
-                  <td>kWh</td>
-                </tr>
-                <tr>
-                  <td><h1>Consumo desde o início da bateria</h1></td>
-                  <td>0</td>
-                  <td>Joules</td>
-                </tr>
-                <tr>
-                  <td><h1>Porcentagem estimada da bateria</h1></td>
-                  <td>0</td>
-                  <td>%</td>
-                </tr>
-                <tr>
-                  <td><h1>Temperatura do circuito de potência</h1></td>
-                  <td>0</td>
-                  <td>°C</td>
-                </tr>
-                <tr>
-                  <td><h1>Número de voltas</h1></td>
-                  <td>0</td>
-                  <td>voltas</td>
-                </tr>
-                <tr>
-                  <td><h1>Porcentagem do percurso</h1></td>
-                  <td>0</td>
-                  <td>%</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td><h1>Corrente elétrica</h1></td>
+                    <td>0</td>
+                    <td>A</td>
+                  </tr>
+                  <tr>
+                    <td><h1>Consumo atual</h1></td>
+                    <td>0</td>
+                    <td>W</td>
+                  </tr>
+                  <tr>
+                    <td><h1>Consumo desde o início da bateria</h1></td>
+                    <td>0</td>
+                    <td>kWh</td>
+                  </tr>
+                  <tr>
+                    <td><h1>Consumo desde o início da bateria</h1></td>
+                    <td>0</td>
+                    <td>Joules</td>
+                  </tr>
+                  <tr>
+                    <td><h1>Porcentagem estimada da bateria</h1></td>
+                    <td>0</td>
+                    <td>%</td>
+                  </tr>
+                  <tr>
+                    <td><h1>Temperatura do circuito de potência</h1></td>
+                    <td>0</td>
+                    <td>°C</td>
+                  </tr>
+                  <tr>
+                    <td><h1>Número de voltas</h1></td>
+                    <td>0</td>
+                    <td>voltas</td>
+                  </tr>
+                  <tr>
+                    <td><h1>Porcentagem do percurso</h1></td>
+                    <td>0</td>
+                    <td>%</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
@@ -237,6 +421,6 @@ export default function Login() {
           </div>
         </section>
       </section>
-    </div>
+    </div >
   );
 }

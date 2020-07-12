@@ -83,10 +83,11 @@
   border-bottom: 2px solid #41414d;
 }
 
-.dashboard-container .dashboard-body .emit-events .message-div input{
+.dashboard-container .dashboard-body .emit-events .message-div textarea{
   width: 90%;
   height: 15vh;
   margin: 10px auto;
+  resize: none;
 
   text-align: center;
   
