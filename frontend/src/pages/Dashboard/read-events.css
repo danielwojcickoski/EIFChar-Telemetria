@@ -33,6 +33,11 @@
     align-items: center;
 }
 
+.dashboard-container .dashboard-body .read-events .infos-table-div table,
+.dashboard-container .dashboard-body .read-events .infos-table-div tbody{
+    width: 60%;
+}
+
 .dashboard-container .dashboard-body .read-events .infos-table-div td:first-child{
     width: 100%;
     text-align: left;
