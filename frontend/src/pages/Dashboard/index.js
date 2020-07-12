@@ -79,6 +79,9 @@ export default function Login() {
     e.preventDefault();
 
     console.log(emitData);
+
+    setReadData(readData);
+    forceUpdate();
   }
 
   /*Read data panel*/
