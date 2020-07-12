@@ -12,6 +12,7 @@ import './read-events.css';
 export default function Login() {
   const history = useHistory();
 
+  /*Verify authorization when page load*/
   useEffect(() => {
     document.title = 'Dashboard - EIFChar';
     async function verifyAuth() {
@@ -23,6 +24,7 @@ export default function Login() {
     verifyAuth();
   });
 
+  /*Emit data panel*/
   const [emitData, setEmitData] = useState({
     lightSignal: {
       led1: {
@@ -53,6 +55,25 @@ export default function Login() {
     console.log(emitData);
   }
 
+  /*Read data panel*/
+  const [readData, setReadData] = useState({
+    currentTime: {
+      hour: "01",
+      minute: "10",
+    },
+    currentSpeed: "0",
+    batteryVoltage: "0",
+    currentAmpere: "0",
+    currentConsume: "0",
+    totalConsumeW: "0",
+    totalConsumeJ: "0",
+    estimatedBattery: "0",
+    powerTemperature: "0",
+    laps: "0",
+    routePercentage: "0",
+  });
+
+  /*Html*/
   return (
     <div className="dashboard-container">
       <Navbar />
@@ -356,15 +377,15 @@ export default function Login() {
             <div className="main-infos-div">
               <div className="last-message-time-div">
                 <h1>Horario ultimas infos:</h1>
-                <h2>00:00</h2>
+                <h2>{readData.currentTime.hour}:{readData.currentTime.minute}</h2>
               </div>
               <div className="speed-div">
                 <h1>Velocidade atual: (km/h)</h1>
-                <h2>00.00</h2>
+                <h2>{readData.currentSpeed}</h2>
               </div>
               <div className="battery-voltage-div">
                 <h1>Tensão da bateria: (V)</h1>
-                <h2>00.00</h2>
+                <h2>{readData.batteryVoltage}</h2>
               </div>
             </div>
 
@@ -373,42 +394,42 @@ export default function Login() {
                 <tbody>
                   <tr>
                     <td><h1>Corrente elétrica</h1></td>
-                    <td>0</td>
+                    <td>{readData.currentAmpere}</td>
                     <td>A</td>
                   </tr>
                   <tr>
                     <td><h1>Consumo atual</h1></td>
-                    <td>0</td>
+                    <td>{readData.currentConsume}</td>
                     <td>W</td>
                   </tr>
                   <tr>
                     <td><h1>Consumo desde o início da bateria</h1></td>
-                    <td>0</td>
+                    <td>{readData.totalConsumeW}</td>
                     <td>kWh</td>
                   </tr>
                   <tr>
                     <td><h1>Consumo desde o início da bateria</h1></td>
-                    <td>0</td>
+                    <td>{readData.totalConsumeJ}</td>
                     <td>Joules</td>
                   </tr>
                   <tr>
                     <td><h1>Porcentagem estimada da bateria</h1></td>
-                    <td>0</td>
+                    <td>{readData.estimatedBattery}</td>
                     <td>%</td>
                   </tr>
                   <tr>
                     <td><h1>Temperatura do circuito de potência</h1></td>
-                    <td>0</td>
+                    <td>{readData.powerTemperature}</td>
                     <td>°C</td>
                   </tr>
                   <tr>
                     <td><h1>Número de voltas</h1></td>
-                    <td>0</td>
+                    <td>{readData.laps}</td>
                     <td>voltas</td>
                   </tr>
                   <tr>
                     <td><h1>Porcentagem do percurso</h1></td>
-                    <td>0</td>
+                    <td>{readData.routePercentage}</td>
                     <td>%</td>
                   </tr>
                 </tbody>
