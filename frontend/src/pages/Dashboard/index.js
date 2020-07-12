@@ -60,6 +60,8 @@ export default function Login() {
     powerTemperature: '0',
     laps: '0',
     routePercentage: '0',
+    statusLasMessage: "Nada enviado",
+    statusApp: "Não conectado ao servidor",
   });
 
   /*Verify authorization when page load*/
@@ -379,7 +381,7 @@ export default function Login() {
           </form>
 
           <div className="status-div">
-            <p><strong>Status Ultima Mensagem:</strong>  Nada enviado</p>
+              <p><strong>Status Ultima Mensagem:</strong>  {readData.statusLasMessage}</p>
           </div>
         </section>
 
@@ -451,7 +453,7 @@ export default function Login() {
           </div>
 
           <div className="status-div">
-            <p><strong>Status Aplicativo:</strong>  Não conectado ao servidor</p>
+            <p><strong>Status Aplicativo:</strong>   {readData.statusApp}</p>
           </div>
         </section>
       </section>
