@@ -10,7 +10,51 @@ import './emit-events.css';
 import './read-events.css';
 
 export default function Login() {
+  /*Use history*/
   const history = useHistory();
+
+  /*Emit data*/
+  const [emitData, setEmitData] = useState({
+    lightSignal: {
+      led1: {
+        action: 'nothing',
+        color: 'off',
+      },
+      led2: {
+        action: 'nothing',
+        color: 'off',
+      },
+      led3: {
+        action: 'nothing',
+        color: 'off',
+      }
+    },
+    soundSignal: {
+      action: 'nothing',
+      onTime: 'off',
+      offTime: 'off',
+      repeat: 'off',
+    },
+    message: '',
+  });
+
+  /*Read data*/
+  const [readData, setReadData] = useState({
+    currentTime: {
+      hour: '22',
+      minute: '00',
+    },
+    currentSpeed: '1',
+    batteryVoltage: '40',
+    currentAmpere: '1',
+    currentConsume: '0',
+    totalConsumeW: '0',
+    totalConsumeJ: '0',
+    estimatedBattery: '98',
+    powerTemperature: '0',
+    laps: '0',
+    routePercentage: '0',
+  });
 
   /*Verify authorization when page load*/
   useEffect(() => {
@@ -25,30 +69,6 @@ export default function Login() {
   });
 
   /*Emit data panel*/
-  const [emitData, setEmitData] = useState({
-    lightSignal: {
-      led1: {
-        action: "nothing",
-        color: "off",
-      },
-      led2: {
-        action: "nothing",
-        color: "off",
-      },
-      led3: {
-        action: "nothing",
-        color: "off",
-      }
-    },
-    soundSignal: {
-      action: "nothing",
-      onTime: "0",
-      offTime: "0",
-      repeat: "0",
-    },
-    message: "",
-  });
-
   function sendData(e) {
     e.preventDefault();
 
@@ -56,22 +76,7 @@ export default function Login() {
   }
 
   /*Read data panel*/
-  const [readData, setReadData] = useState({
-    currentTime: {
-      hour: "01",
-      minute: "10",
-    },
-    currentSpeed: "0",
-    batteryVoltage: "0",
-    currentAmpere: "0",
-    currentConsume: "0",
-    totalConsumeW: "0",
-    totalConsumeJ: "0",
-    estimatedBattery: "0",
-    powerTemperature: "0",
-    laps: "0",
-    routePercentage: "0",
-  });
+
 
   /*Html*/
   return (
@@ -102,7 +107,7 @@ export default function Login() {
                       })
                     }}
                   >
-                    <option value="nothing" disabled selected>Ação</option>
+                    <option value="nothing" disabled>Ação</option>
                     <option value="on">Ligar</option>
                     <option value="off">Desligar</option>
                   </select>
@@ -121,7 +126,7 @@ export default function Login() {
                       })
                     }}
                   >
-                    <option value="off" disabled selected>Cor</option>
+                    <option value="off" disabled>Cor</option>
                     <option value="green">Verde</option>
                     <option value="yellow">Amarelo</option>
                     <option value="red">Vermelho</option>
@@ -145,7 +150,7 @@ export default function Login() {
                       })
                     }}
                   >
-                    <option value="nothing" disabled selected>Ação</option>
+                    <option value="nothing" disabled>Ação</option>
                     <option value="on">Ligar</option>
                     <option value="off">Desligar</option>
                   </select>
@@ -164,7 +169,7 @@ export default function Login() {
                       })
                     }}
                   >
-                    <option value="off" disabled selected>Cor</option>
+                    <option value="off" disabled >Cor</option>
                     <option value="green">Verde</option>
                     <option value="yellow">Amarelo</option>
                     <option value="red">Vermelho</option>
@@ -188,7 +193,7 @@ export default function Login() {
                       })
                     }}
                   >
-                    <option value="nothing" disabled selected>Ação</option>
+                    <option value="nothing" disabled>Ação</option>
                     <option value="on">Ligar</option>
                     <option value="off">Desligar</option>
                   </select>
@@ -207,7 +212,7 @@ export default function Login() {
                       })
                     }}
                   >
-                    <option value="off" disabled selected>Cor</option>
+                    <option value="off" disabled>Cor</option>
                     <option value="green">Verde</option>
                     <option value="yellow">Amarelo</option>
                     <option value="red">Vermelho</option>
@@ -235,7 +240,7 @@ export default function Login() {
                     })
                   }}
                 >
-                  <option value="nothing" disabled selected>Ação</option>
+                  <option value="nothing" disabled>Ação</option>
                   <option value="on">Ligar</option>
                   <option value="off">Desligar</option>
                 </select>
@@ -254,7 +259,7 @@ export default function Login() {
                     })
                   }}
                 >
-                  <option value="0" disabled selected>Tempo ON</option>
+                  <option value="off" disabled>Tempo ON</option>
                   <option value="0">0s</option>
                   <option value="0.5">0.5s</option>
                   <option value="1">1s</option>
@@ -292,7 +297,7 @@ export default function Login() {
                     })
                   }}
                 >
-                  <option value="0" disabled selected>Tempo OFF</option>
+                  <option value="off" disabled>Tempo OFF</option>
                   <option value="0">0s</option>
                   <option value="0.5">0.5s</option>
                   <option value="1">1s</option>
@@ -330,7 +335,7 @@ export default function Login() {
                     })
                   }}
                 >
-                  <option value="0" disabled selected>Repetições</option>
+                  <option value="off" disabled>Repetições</option>
                   <option value="0">Não repetir</option>
                   <option value="1">1x</option>
                   <option value="2">2x</option>
@@ -372,7 +377,7 @@ export default function Login() {
 
         <span></span>
 
-        <section className="read-events">
+        <section className="read-events" key="10">
           <div className="read-itens-div">
             <div className="main-infos-div">
               <div className="last-message-time-div">
