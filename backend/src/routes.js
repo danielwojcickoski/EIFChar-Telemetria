@@ -3,8 +3,9 @@ const express = require('express');
 const routes = express.Router();
 
 /*Logon Controller*/
-const LogonController = require('./controllers/LogonController');
-routes.get('/login', LogonController.login);
-routes.post('/register', LogonController.register);
+const SessionController = require('./controllers/SessionController');
+routes.post('/login', SessionController.login);
+routes.post('/register', SessionController.register);
+routes.post('/verifyauth', SessionController.verifyauth);
 
 module.exports = routes;

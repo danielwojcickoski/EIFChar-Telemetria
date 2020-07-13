@@ -10,7 +10,7 @@ export default async function handleLogin(user, password) {
     if (validateUser !== true) throw new Error(validateUser);
     if (validatePassword !== true) throw new Error(validatePassword);
 
-    await api.get('login', {
+    await api.post('login', {
       user,
       password
     }).then(response => {

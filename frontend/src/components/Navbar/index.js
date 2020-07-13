@@ -9,8 +9,7 @@ export default function Navbar() {
   const history = useHistory();
 
   function handleLogout(){
-    /*Limpar localstorage*/
-
+    localStorage.clear();
     history.push('/');
   }
 

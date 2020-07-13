@@ -30,7 +30,6 @@ export default function Login() {
     if (await handleLogin(user, password)) {
       history.push('/dashboard');
     }
-    history.push('/dashboard');
   }
 
   return (
