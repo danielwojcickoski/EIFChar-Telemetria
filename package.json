@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "migrate:latest": "cd backend & npx knex migrate:latest",
-    "start": "npm run migrate:latest & node backend/src/server.js",
+    "start": "node backend/src/server.js",
     "dev": "nnodemon backend/src/server.js"
   },
   "keywords": [],
