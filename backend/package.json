@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/server.js",
+    "start": "node src/server.js NODE_ENV=production",
+    "dev": "nodemon src/server.js NODE_ENV=development",
     "migrate:latest": "npx knex migrate:latest"
   },
   "keywords": [],
