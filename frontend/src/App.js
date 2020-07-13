@@ -4,7 +4,6 @@ import Routes from './routes';
 
 import './stylesheet/main.css';
 
-
 function App() {
   return (
     <Routes />
