@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "migrate:latest": "cd backend & npx knex migrate:latest",
-    "start": "node backend/src/server.js",
-    "dev": "nnodemon backend/src/server.js"
+    "migrate:latest": "npx knex migrate:latest",
+    "start": "npm rum migrate:latest & node backend/src/server.js",
+    "dev": "nodemon backend/src/server.js"
   },
   "keywords": [],
   "author": "",
