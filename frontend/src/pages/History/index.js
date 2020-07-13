@@ -14,10 +14,10 @@ export default function Login() {
   useEffect(() => {
     document.title = 'Dashboard - EIFChar';
     async function verifyAuth() {
-      if (await !verifyAuthorization()) {
-        return false;
+      if (await verifyAuthorization()) {
+        localStorage.clear();
+        history.push('/login');
       }
-      history.push('/login');
     }
     verifyAuth();
   });

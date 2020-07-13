@@ -46,10 +46,7 @@ export default function Login() {
 
   /*Read data*/
   const [readData, setReadData] = useState({
-    currentTime: {
-      hour: '00',
-      minute: '00',
-    },
+    currentTime: "00:00",
     currentSpeed: '0',
     batteryVoltage: '0',
     currentAmpere: '0',
@@ -68,10 +65,10 @@ export default function Login() {
   useEffect(() => {
     document.title = 'Dashboard - EIFChar';
     async function verifyAuth() {
-      if (await !verifyAuthorization()) {
-        return false;
+      if (await verifyAuthorization()) {
+        localStorage.clear();
+        history.push('/login');
       }
-      history.push('/login');
     }
     verifyAuth();
   });
@@ -392,7 +389,7 @@ export default function Login() {
             <div className="main-infos-div">
               <div className="last-message-time-div">
                 <h1>Horario ultimas infos:</h1>
-                <h2>{readData.currentTime.hour}:{readData.currentTime.minute}</h2>
+                <h2>{readData.currentTime}</h2>
               </div>
               <div className="speed-div">
                 <h1>Velocidade atual: (km/h)</h1>
