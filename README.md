@@ -1,5 +1,5 @@
 # EIFChar-Telemetria
-  Projeto com o intuito de facilitar a troca de informações entre um carro eletrico e o box, durante uma bateria de testes.
+  Projeto com o intuito de facilitar a troca de informações entre um carro eletrico e o box, durante baterias de testes.
 
 # Funcionamento do projeto
   O projeto é composto por 3 aplicações:
