@@ -8,4 +8,4 @@
     
     Server (NodeJs) - O servidor é sesponsavel por fazer o controle das rotas do client web, fazer a comunicação em tempo real entre o client web e o app mobile, e salvar as informações das baterias num banco de dados, para consulta e analise futura.
     
-    App mobile (React Native)- É a parte responsavel por fazer a comunicação entre o carro e o server
+    App mobile (React Native) - É a parte responsavel por fazer a comunicação entre o carro e o server
