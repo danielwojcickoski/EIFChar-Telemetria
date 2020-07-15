@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "migrate:latest": "npx knex migrate:latest",
+    "migrate:latest": "npx knex --knexfile=./backend/knexfile.js migrate:latest",
     "start": "npm rum migrate:latest & node backend/src/server.js",
     "dev": "nodemon backend/src/server.js"
   },
