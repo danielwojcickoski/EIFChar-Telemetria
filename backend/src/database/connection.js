@@ -1,5 +1,5 @@
 const knex = require('knex');
-const configuration = require('../../../knexfile');
+const configuration = require('../../knexfile.js');
 
 const config = process.env.NODE_ENV === 'production' ? configuration.production : configuration.development;
 
