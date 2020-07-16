@@ -12,7 +12,7 @@ export default async function makeRegister(user, email, password, confirmPasswor
     let validateUser = userValidation(user);
     let validateEmail = emailValidation(email);
     let validatePassword = passwordValidation(password);
-    let validateConfirmation = passwordConfirmValidation(confirmPassword);
+    let validateConfirmation = passwordConfirmValidation(password, confirmPassword);
 
     if (validateUser !== true) throw new Error(validateUser);
     if (validateEmail !== true) throw new Error(validateEmail);

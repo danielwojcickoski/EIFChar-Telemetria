@@ -1,10 +1,16 @@
 const database = require('../database/connection');
 
 const generateAuthorization = require('../utils/generateAuthorization');
+const validateData = require('../utils/validateData')
 
 module.exports = {
     async login(request, response) {
         const { user, password } = request.body;
+        let validateUser = validateData.user(user);
+        let validatePassword = validateData.password(password);
+
+        if (validateUser !== true) return response.status(400).json({ error: validateUser });
+        if (validatePassword !== true) return response.status(400).json({ error: validatePassword });
 
         const bdUser = await database('users')
             .where('user', user)
@@ -32,6 +38,14 @@ module.exports = {
     },
     async register(request, response) {
         const { user, email, password } = request.body;
+        let validateUser = validateData.user(user);
+        let validateEmail = validateData.email(email);
+        let validatePassword = validateData.password(password);
+
+        if (validateUser !== true) return response.status(400).json({ error: validateUser });
+        if (validateEmail !== true) return response.status(400).json({ error: validateEmail });
+        if (validatePassword !== true) return response.status(400).json({ error: validatePassword });
+
 
         /*Verify user already used*/
         const bdUser = await database('users')
