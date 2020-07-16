@@ -42,6 +42,24 @@
   border-radius: 8px;
 }
 
+.dashboard-container .green{
+  background-color: green;
+  color: black;
+  font-weight: bold;
+}
+
+.dashboard-container .yellow{
+  background-color: yellow;
+  color: black;
+  font-weight: bold;
+}
+
+.dashboard-container .red{
+  background-color: red;
+  color: black;
+  font-weight: bold;
+}
+
 /*Sound Signal*/
 .dashboard-container .dashboard-body .emit-events .sound-signal-div{
   height: 100%;

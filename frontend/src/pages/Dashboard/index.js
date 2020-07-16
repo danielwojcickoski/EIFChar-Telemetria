@@ -112,6 +112,7 @@ export default function Login() {
                     <option value="off">Desligar</option>
                   </select>
                   <select
+                    className={emitData.lightSignal.led1.color}
                     value={emitData.lightSignal.led1.color}
                     onChange={e => {
                       const newColor = e.target.value;
@@ -155,6 +156,7 @@ export default function Login() {
                     <option value="off">Desligar</option>
                   </select>
                   <select
+                    className={emitData.lightSignal.led2.color}
                     value={emitData.lightSignal.led2.color}
                     onChange={e => {
                       const newColor = e.target.value;
@@ -198,6 +200,7 @@ export default function Login() {
                     <option value="off">Desligar</option>
                   </select>
                   <select
+                    className={emitData.lightSignal.led3.color}
                     value={emitData.lightSignal.led3.color}
                     onChange={e => {
                       const newColor = e.target.value;
