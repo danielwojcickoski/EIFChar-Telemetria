@@ -8,15 +8,7 @@ export default function Login() {
 
   useEffect(() => {
     document.title = 'EIFChar';
-    async function verifyAuth() {
-      if (await verifyAuthorization()) {
-        history.push('/dashboard');
-      }
-      else{
-        history.push('/login');
-      }
-    }
-    verifyAuth();
+    history.push('/login');
   });
 
   return (
