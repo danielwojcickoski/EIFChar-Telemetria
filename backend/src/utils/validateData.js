@@ -30,8 +30,15 @@ function passwordValidation(password) {
     return true;
 }
 
+function accountTypeValidation(accountType) {
+    if (accountType === '' || accountType === undefined) return 'MISSINGDATA';
+
+    return true;
+}
+
 module.exports = {
     user: userValidation,
     email: emailValidation,
-    password: passwordValidation
+    password: passwordValidation,
+    accountType: accountTypeValidation
 }

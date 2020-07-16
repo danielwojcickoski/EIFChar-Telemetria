@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 
-import verifyAuthorization from '../../utils/verifyAuthorization';
 import handleRegister from './handleRegister'
 
 import './styles.css'

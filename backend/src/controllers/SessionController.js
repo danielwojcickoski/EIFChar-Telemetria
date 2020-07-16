@@ -1,7 +1,8 @@
 const database = require('../database/connection');
 
 const generateAuthorization = require('../utils/generateAuthorization');
-const validateData = require('../utils/validateData')
+const validateData = require('../utils/validateData');
+const { accountType } = require('../utils/validateData');
 
 module.exports = {
     async login(request, response) {
@@ -17,13 +18,22 @@ module.exports = {
             .select('*')
             .first();
 
+        console.log(bdUser)
+
         if (bdUser !== undefined) {
             if (bdUser.user === user) {
                 if (bdUser.password === password) {
                     console.log(`User ${user} logged in`);
 
                     const authorization = generateAuthorization();
-                    return response.status(200).json({ authorization: authorization });
+                    await database('users')
+                        .where('user', user)
+                        .update({ authorization: authorization })
+
+                    return response.status(200).json({ 
+                        authorization: authorization,
+                        accountType: bdUser.accountType
+                    });
                 }
                 else {
                     return response.status(400).json({ error: 'WRONGPASSWORD' });
@@ -41,11 +51,12 @@ module.exports = {
         let validateUser = validateData.user(user);
         let validateEmail = validateData.email(email);
         let validatePassword = validateData.password(password);
+        let validateAccountType = validateData.accountType(accountType);
 
         if (validateUser !== true) return response.status(400).json({ error: validateUser });
         if (validateEmail !== true) return response.status(400).json({ error: validateEmail });
         if (validatePassword !== true) return response.status(400).json({ error: validatePassword });
-
+        if (validateAccountType !== true) return response.status(400).json({ error: validateAccountType });
 
         /*Verify user already used*/
         const bdUser = await database('users')
@@ -74,10 +85,9 @@ module.exports = {
             email,
             password,
             authorization,
-            socket: {
-                web: authorization,
-                app: authorization,
-            }
+            accountType,
+            socketWeb: authorization,
+            socketApp: authorization,
         });
 
         /*Generate register log*/

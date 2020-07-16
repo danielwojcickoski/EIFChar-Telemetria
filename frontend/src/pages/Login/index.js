@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { MdCreate } from 'react-icons/md';
 
-import verifyAuthorization from '../../utils/verifyAuthorization';
 import handleLogin from './handleLogin'
 
 import './styles.css';
