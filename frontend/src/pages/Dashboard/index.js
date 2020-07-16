@@ -64,13 +64,6 @@ export default function Login() {
   /*Verify authorization when page load*/
   useEffect(() => {
     document.title = 'Dashboard - EIFChar';
-    async function verifyAuth() {
-      if (await !verifyAuthorization()) {
-        localStorage.clear();
-        history.push('/login');
-      }
-    }
-    verifyAuth();
   });
 
   /*Emit data panel*/
