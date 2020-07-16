@@ -5,7 +5,7 @@ import { FiPower } from 'react-icons/fi';
 import './styles.css';
 import logo from '../../assets/logo.png'
 
-export default function Navbar() {
+export default function TeamNavbar() {
   const history = useHistory();
 
   function handleLogout(){
@@ -18,11 +18,11 @@ export default function Navbar() {
       <img src={logo} alt="EIFChar" />
 
       <nav>
-        <Link className="back-link navbar-link" to="/dashboard">
+        <Link className="back-link navbar-link" to="/team/dashboard">
           Dashboard
           </Link>
 
-        <Link className="back-link navbar-link" to="/history">
+        <Link className="back-link navbar-link" to="/team/history">
           Histórico
           </Link>
 

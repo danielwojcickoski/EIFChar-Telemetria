@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 //import { useHistory } from 'react-router-dom';
 
-import Navbar from '../../components/Navbar'
+import TeamNavbar from '../../components/TeamNavbar'
 
 //import verifyAuthorization from '../../utils/verifyAuthorization';
 
 import './styles.css';
 import logo from '../../assets/logo.png'
 
-export default function Login() {
+export default function TeamHistory() {
   //const history = useHistory();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Login() {
 
   return (
     <div className="history-container">
-      <Navbar />
+      <TeamNavbar />
 
       <section className="history-body">
         <img src={logo} alt="EIFChar" />

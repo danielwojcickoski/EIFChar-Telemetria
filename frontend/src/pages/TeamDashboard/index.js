@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //import { useHistory } from 'react-router-dom';
 
-import Navbar from '../../components/Navbar'
+import TeamNavbar from '../../components/TeamNavbar'
 
 //import verifyAuthorization from '../../utils/verifyAuthorization';
 
@@ -9,7 +9,12 @@ import './styles.css';
 import './emit-events.css';
 import './read-events.css';
 
-export default function Login() {
+export default function TeamDashboard() {
+  /*Locastorage vars*/
+  //const user = localStorage.getItem('user');
+  //const authorization = localStorage.getItem('authorization');
+  //const accountType = localStorage.getItem('accountType');
+
   /*Use history*/
   //const history = useHistory();
 
@@ -81,7 +86,7 @@ export default function Login() {
   /*Html*/
   return (
     <div className="dashboard-container">
-      <Navbar />
+      <TeamNavbar />
 
       <section className="dashboard-body">
         <section className="emit-events">

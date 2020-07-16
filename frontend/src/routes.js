@@ -1,12 +1,18 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+/* Base */
 import Homepage from './pages/Homepage'
+ 
+/* Session */
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
-import History from './pages/History';
 
+/* Team Application */
+import TeamDashboard from './pages/TeamDashboard';
+import TeamHistory from './pages/TeamHistory';
+
+/* Error 404 */
 import NotFound from './pages/NotFound';
 
 export default function Routes() {
@@ -18,8 +24,8 @@ export default function Routes() {
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         
-        <Route path="/dashboard" exact component={Dashboard} />
-        <Route path="/History" exact component={History} />
+        <Route path="/team/dashboard" exact component={TeamDashboard} />
+        <Route path="/team/history" exact component={TeamHistory} />
 
         <Route path="/*" exact component={NotFound} />
       </Switch>

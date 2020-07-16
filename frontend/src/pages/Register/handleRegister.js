@@ -1,25 +1,15 @@
 import api from '../../services/api';
 import errorAlert from '../../utils/errorAlert';
-import { 
-  userValidation, 
-  emailValidation, 
-  passwordValidation, 
-  passwordConfirmValidation 
-} from '../../utils/validateData'
+import validateData from '../../utils/validateData';
 
-export default async function makeRegister(user, email, password, confirmPassword) {
+export default async function makeRegister(user, email, password, confirmPassword, accountType) {
   try {
-    let validateUser = userValidation(user);
-    let validateEmail = emailValidation(email);
-    let validatePassword = passwordValidation(password);
-    let validateConfirmation = passwordConfirmValidation(password, confirmPassword);
+    let validateDataReturn = validateData(user, email, password, confirmPassword, accountType);
+    if (validateDataReturn !== true) throw new Error(validateDataReturn);
 
-    if (validateUser !== true) throw new Error(validateUser);
-    if (validateEmail !== true) throw new Error(validateEmail);
-    if (validatePassword !== true) throw new Error(validatePassword);
-    if (validateConfirmation !== true) throw new Error(validateConfirmation);
+    console.log("revdsvfdsv")
 
-    await api.post('/register', { user, email, password });
+    await api.post('/register', { user, email, password, accountType });
 
     alert('Cadastro realizado com sucesso');
     return true;

@@ -43,21 +43,18 @@
 }
 
 .dashboard-container .green{
-  background-color: green;
+  background-color: #51ff51;
   color: black;
-  font-weight: bold;
 }
 
 .dashboard-container .yellow{
-  background-color: yellow;
+  background-color: #FFFF06;
   color: black;
-  font-weight: bold;
 }
 
 .dashboard-container .red{
-  background-color: red;
+  background-color: #ff4a4a;
   color: black;
-  font-weight: bold;
 }
 
 /*Sound Signal*/

@@ -15,21 +15,16 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [accountType, setAccountType] = useState('');
 
   useEffect(() => {
     document.title = 'Cadastro - EIFChar';
-    async function verifyAuth() {
-      if (await verifyAuthorization()) {
-        history.push('/dashboard');
-      }
-    }
-    verifyAuth();
   });
 
   async function makeRegister(e) {
     e.preventDefault();
 
-    if (await handleRegister(user, email, password, confirmPassword)) {
+    if (await handleRegister(user, email, password, confirmPassword, accountType)) {
       history.push('/login');
     }
   }
@@ -61,7 +56,17 @@ export default function Register() {
             value={confirmPassword}
             onChange={e => setConfirmPassword(e.target.value)}
             type="password"
-          />
+          />  
+
+          <select
+            value={accountType}
+            onChange={e => setAccountType(e.target.value)}
+          >
+            <option value="" disabled>Selecione o tipo de cadastro</option>
+            <option value="team">Equipe</option>
+            <option value="user">Usuario</option>
+          </select>
+
           <button className="button" type="submit">Cadastrar</button>
 
           <Link className="back-link" to="/login">

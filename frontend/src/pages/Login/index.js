@@ -16,19 +16,18 @@ export default function Login() {
 
   useEffect(() => {
     document.title = 'Login - EIFChar';
-    async function verifyAuth() {
-      if (await verifyAuthorization()) {
-        history.push('/dashboard');
-      }
-    }
-    verifyAuth();
   });
 
   async function makeLogin(e) {
     e.preventDefault();
 
     if (await handleLogin(user, password)) {
-      history.push('/dashboard');
+      if(localStorage.getItem('accountType') === 'team'){
+        history.push('/team/dashboard');
+      }
+      else if(localStorage.getItem('accountType') === 'user'){
+        history.push('/user/dashboard');
+      }
     }
   }
 

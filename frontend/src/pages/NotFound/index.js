@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default function Login() {
+export default function NotFound() {
   const history = useHistory();
 
   useEffect(() => {

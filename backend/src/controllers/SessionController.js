@@ -37,7 +37,7 @@ module.exports = {
         return response.status(400).json({ error: 'USERNOTFOUND' });
     },
     async register(request, response) {
-        const { user, email, password } = request.body;
+        const { user, email, password, accountType } = request.body;
         let validateUser = validateData.user(user);
         let validateEmail = validateData.email(email);
         let validatePassword = validateData.password(password);
