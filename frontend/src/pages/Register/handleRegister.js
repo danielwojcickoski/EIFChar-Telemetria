@@ -1,13 +1,18 @@
 import api from '../../services/api';
 import errorAlert from '../../utils/errorAlert';
-import validateData from '../../utils/validateData'
+import { 
+  userValidation, 
+  emailValidation, 
+  passwordValidation, 
+  passwordConfirmValidation 
+} from '../../utils/validateData'
 
 export default async function makeRegister(user, email, password, confirmPassword) {
   try {
-    let validateUser = validateData.user(user);
-    let validateEmail = validateData.user(email);
-    let validatePassword = validateData.user(password);
-    let validateConfirmation = validateData.user(confirmPassword);
+    let validateUser = userValidation(user);
+    let validateEmail = emailValidation(email);
+    let validatePassword = passwordValidation(password);
+    let validateConfirmation = passwordConfirmValidation(confirmPassword);
 
     if (validateUser !== true) throw new Error(validateUser);
     if (validateEmail !== true) throw new Error(validateEmail);

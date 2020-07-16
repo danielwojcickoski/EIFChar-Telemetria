@@ -1,4 +1,5 @@
 export default function errorAlert(error) {
+  console.log(error);
   if (error.response !== undefined) {
     if (error.response.request !== undefined) {
       if (error.response.request.response !== undefined) {
@@ -7,7 +8,7 @@ export default function errorAlert(error) {
     }
   }
 
-  console.log(error.message);
+  //console.log(error.message);
 
   switch (error.message) {
     case 'MISSINGDATA':

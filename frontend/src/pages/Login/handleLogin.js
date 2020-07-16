@@ -1,11 +1,14 @@
 import api from '../../services/api';
 import errorAlert from '../../utils/errorAlert';
-import validateData from '../../utils/validateData'
+import { 
+  userValidation, 
+  passwordValidation, 
+} from '../../utils/validateData'
 
 export default async function handleLogin(user, password) {
   try {
-    let validateUser = validateData.user(user);
-    let validatePassword = validateData.user(password);
+    let validateUser = userValidation(user);
+    let validatePassword = passwordValidation(password);
 
     if (validateUser !== true) throw new Error(validateUser);
     if (validatePassword !== true) throw new Error(validatePassword);

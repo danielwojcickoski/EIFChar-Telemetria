@@ -1,10 +1,10 @@
-function user(user) {
+export function userValidation(user) {
     if (user === '' || user === undefined) return 'MISSINGDATA';
 
     return true;
 }
 
-function email(email) {
+export function emailValidation(email) {
     if (email === '' || email === undefined) return 'MISSINGDATA';
 
     var indexAt = email.indexOf('@');
@@ -23,25 +23,18 @@ function email(email) {
     return true;
 }
 
-function password(password) {
+export function passwordValidation(password) {
     if (password === '' || password === undefined) return 'MISSINGDATA';
     if (password.length < 8) return 'SHORTPASSWORD';
 
     return true;
 }
 
-function passwordConfirmation(password, confirmation) {
-    let passwordVerify = password(password);
+export function passwordConfirmValidation(password, confirmation) {
+    let passwordVerify = passwordValidation(password);
     if (passwordVerify !== true) return passwordVerify;
 
     if (password !== confirmation) return 'CONFIRMPASSWORRDERROR';
 
     return true;
 }
-
-export default { 
-    user, 
-    email, 
-    password, 
-    passwordConfirmation 
-};
