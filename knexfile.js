@@ -9,10 +9,10 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: `${__dirname}/src/database/db.sqlite`
+      filename: `${__dirname}/backend/src/database/db.sqlite`
     },
     migrations: {
-			directory: `${__dirname}/src/database/migrations/`
+			directory: `${__dirname}/backend/src/database/migrations/`
 		},
 		useNullAsDefault: true,
   },
@@ -21,7 +21,7 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     migrations: {
-			directory: `${__dirname}/src/database/migrations/`
+			directory: `${__dirname}/backend/src/database/migrations/`
 		},
   }
 
