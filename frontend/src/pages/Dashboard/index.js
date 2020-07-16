@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 
 import Navbar from '../../components/Navbar'
 
-import verifyAuthorization from '../../utils/verifyAuthorization';
+//import verifyAuthorization from '../../utils/verifyAuthorization';
 
 import './styles.css';
 import './emit-events.css';
@@ -11,7 +11,7 @@ import './read-events.css';
 
 export default function Login() {
   /*Use history*/
-  const history = useHistory();
+  //const history = useHistory();
 
   /*Force update*/
   const [update, setUpdate] = useState(0);
