@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-//import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import TeamNavbar from '../../components/TeamNavbar'
 
 //import verifyAuthorization from '../../utils/verifyAuthorization';
+import verifyStorageData from '../../utils/verifyStorageData';
 
 import './styles.css';
 import './emit-events.css';
@@ -16,7 +17,7 @@ export default function TeamDashboard() {
   //const accountType = localStorage.getItem('accountType');
 
   /*Use history*/
-  //const history = useHistory();
+  const history = useHistory();
 
   /*Force update*/
   const [update, setUpdate] = useState(0);
@@ -69,6 +70,11 @@ export default function TeamDashboard() {
   /*Verify authorization when page load*/
   useEffect(() => {
     document.title = 'Dashboard - EIFChar';
+
+    if(verifyStorageData() !== true){
+      localStorage.clear();
+      history.push('/login');
+    }
   });
 
   /*Emit data panel*/
