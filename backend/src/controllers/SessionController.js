@@ -86,8 +86,8 @@ module.exports = {
             password,
             authorization,
             accountType,
-            socketWeb: authorization,
-            socketApp: authorization,
+            socketWeb: null,
+            socketApp: null,
         });
 
         /*Generate register log*/
