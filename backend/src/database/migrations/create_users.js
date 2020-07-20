@@ -4,8 +4,9 @@ exports.up = function (knex) {
     table.string('email').notNullable();
     table.string('password').notNullable();
     table.string('authorization').notNullable();
+    table.string('accountType').notNullable();
     table.string('socketWeb').notNullable();
-    table.string('socketWeb').notNullable();
+    table.string('socketApp').notNullable();
   });
 };
 
